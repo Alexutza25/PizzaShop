@@ -4,31 +4,28 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import pizzashop.model.PaymentType;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.util.Optional;
 
 public class PaymentAlert implements PaymentOperation {
     private PizzaService service;
 
-    String variable ="------------";
     public PaymentAlert(PizzaService service){
         this.service=service;
     }
 
     @Override
     public void cardPayment() {
-        System.out.println(variable);
+        System.out.println("--------------------------");
         System.out.println("Paying by card...");
         System.out.println("Please insert your card!");
-        System.out.println(variable);
+        System.out.println("--------------------------");
     }
     @Override
     public void cashPayment() {
-        System.out.println(variable);
+        System.out.println("--------------------------");
         System.out.println("Paying cash...");
         System.out.println("Please show the cash...!");
-        System.out.println(variable);
+        System.out.println("--------------------------");
     }
     @Override
     public void cancelPayment() {
@@ -48,10 +45,10 @@ public class PaymentAlert implements PaymentOperation {
         Optional<ButtonType> result = paymentAlert.showAndWait();
         if (result.get() == cardPayment) {
             cardPayment();
-            service.addPayment(tableNumber, PaymentType.CARD,totalAmount);
+            service.addPayment(tableNumber, PaymentType.Card,totalAmount);
         } else if (result.get() == cashPayment) {
             cashPayment();
-            service.addPayment(tableNumber, PaymentType.CASH,totalAmount);
+            service.addPayment(tableNumber, PaymentType.Cash,totalAmount);
         } else if (result.get() == cancel) {
              cancelPayment();
         } else {

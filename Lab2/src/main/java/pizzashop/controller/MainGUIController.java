@@ -52,7 +52,7 @@ public class MainGUIController  {
 
     PizzaService service;
 
-    public MainGUIController(){ /* TODO document why this constructor is empty */ }
+    public MainGUIController(){}
 
     public void setService(PizzaService service){
         this.service=service;

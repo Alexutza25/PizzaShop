@@ -18,10 +18,6 @@ public class PizzaService {
         this.payRepo=payRepo;
     }
 
-    public PizzaService() {
-
-    }
-
     public List<MenuDataModel> getMenuData(){return menuRepo.getMenu();}
 
     public List<Payment> getPayments(){return payRepo.getAll(); }

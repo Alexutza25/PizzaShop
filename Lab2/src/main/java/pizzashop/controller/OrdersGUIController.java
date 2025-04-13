@@ -46,7 +46,7 @@ public class OrdersGUIController {
 
     private   List<String> orderList = FXCollections.observableArrayList();
     private List<Double> orderPaymentList = FXCollections.observableArrayList();
-    public double getTotalAmount() {
+    public static double getTotalAmount() {
         return totalAmount;
     }
     public void setTotalAmount(double totalAmount) {
@@ -62,9 +62,7 @@ public class OrdersGUIController {
     private Calendar now = Calendar.getInstance();
     private static double totalAmount;
 
-    public OrdersGUIController(){
-        //throw new UnsupportedOperationException("Constructorul nu este suportat");
-    }
+    public OrdersGUIController(){ }
 
     public void setService(PizzaService service, int tableNumber){
         this.service=service;

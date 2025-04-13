@@ -24,7 +24,7 @@ public class OrdersGUI {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/OrdersGUIFXML.fxml"));
 
-            vBoxOrders = FXMLLoader.load(getClass().getResource("/fxml/OrdersGUIFXML.fxml"));
+            //vBoxOrders = FXMLLoader.load(getClass().getResource("/fxml/OrdersGUIFXML.fxml"));
             vBoxOrders = loader.load();
             OrdersGUIController ordersCtrl= loader.getController();
             ordersCtrl.setService(service, tableNumber);
@@ -44,8 +44,7 @@ public class OrdersGUI {
          event.consume();
             }
         });
-        assert vBoxOrders != null;
-        stage.setScene(new Scene(vBoxOrders));
+     stage.setScene(new Scene(vBoxOrders));
      stage.show();
     }
 }
