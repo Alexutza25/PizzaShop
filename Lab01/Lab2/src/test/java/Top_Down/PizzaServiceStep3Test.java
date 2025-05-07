@@ -19,10 +19,10 @@ public class PizzaServiceStep3Test {
 
     @BeforeEach
     public void setUp() {
-        // folosim fișier dedicat testului
+        // folosim fisier dedicat testului
         String testFile = "C:\\Users\\Alexandra\\Documents\\GitHub\\PizzaShop\\Lab01\\Lab2\\data\\test_payments.txt";
 
-        // ștergem fișierul de test dacă există deja
+        // ștergem fișierul de test daca există deja
         File f = new File(testFile);
         if (f.exists()) {
             f.delete();
