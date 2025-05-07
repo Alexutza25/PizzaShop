@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><title>testspec Proiect233 - biar2471_IntT</title>
+<link type="text/css" rel="stylesheet" href="https://www.scs.ubbcluj.ro/testlink/gui/themes/default/css/tl_documents.css" />
+<style type="text/css" media="print">.notprintable { display:none;}</style>
+</head>
+<body>
+<div>
+<div style="float:right;">TestLink Community [configure $tlCfg-&gt;document_generator-&gt;company_name]</div>
+<div>&nbsp;</div><hr />
+<p style="text-align: center;"><img alt="TestLink logo" title="configure using $tlCfg->document_generator->company_logo"  width= height= src="https://www.scs.ubbcluj.ro/testlink/gui/themes/default/images/tl-logo-transparent-25.png" /></p></div>
+<div class="doc_title"><p>Test Specification</p></div>
+<div class="doc_title" style="text-align:left;margin: auto;"><p>Test Project: Proiect233<br/>Test Suite: Proiect233 - biar2471_IntT</p></div>
+<div class="summary"><p id="printedby">Printed by TestLink on 03/05/2025</p></div>
+<div class="pagefooter" id="copyright">2012 &copy; TestLink Community</div>
+<h1 class="general" style="page-break-before: always">Table Of Contents</h1><div class="toc"><p style="padding-left: 20px;"><b><a href="#toc_1">1.biar2471_IntT</a></b></p>
+<p style="padding-left: 45px;"><a href="#toc_tc26060">Prj233-106: Step 1</a></p><p style="padding-left: 45px;"><a href="#toc_tc26064">Prj233-108: Step2 - Integrare S+R</a></p><p style="padding-left: 45px;"><a href="#toc_tc26068">Prj233-110: Step 3</a></p></div><h1 class="doclevel" >Scope</h1>
+<div class="txtlevel"><p>Proiect de testare pentru studentii din grupa 233.</p></div>
+ <br/><a name='toc_1'></a>
+<h1 class='doclevel'>1.Test Suite : biar2471_IntT</h1>
+<div><p>Teste pentru integrare top-down</p>
+</div><a name="toc_tc26060"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="4">Test Case Prj233-106: Step 1&nbsp;<span style="font-size: 80%;">[Version  : 1]</span></th></tr>
+<tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="3">biar2471</td></tr>
+<tr><td colspan="4"><span class="label">Summary:</span><br /><p>Se testează clasa PizzaService folosind mock-uri pentru PaymentRepository și MenuRepository.</p>
+
+<p>1. Se creează mock-uri pentru PaymentRepository și MenuRepository.<br />
+2. Se creează instanța PizzaService folosind mock-urile.<br />
+3. Se apelează metoda addPayment() și se verifică dacă PaymentRepository.add() este apelată.<br />
+4. Se simulează lista returnată de PaymentRepository.getAll().<br />
+5. Se apelează getTotalAmount() și se verifică rezultatul.<br />
+6. Se testează și comportamentul la returnarea unei liste null.&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>Expected Results:<br />
+- add() este apelat exact o dată.<br />
+- getPayments() returnează lista simulată corect.<br />
+- getTotalAmount() calculează suma corectă pentru tipul specificat.<br />
+- La listă null, metoda aruncă IllegalArgumentException.</p>
+
+<p>&nbsp;</p>
+</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>- Proiectul trebuie să fie compilat cu succes.<br />
+- Framework-ul JUnit 5 și Mockito trebuie să fie configurate &icirc;n pom.xml.<br />
+- Clasele PizzaService, PaymentRepository și PaymentType trebuie să fie disponibile.</p>
+</td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Automated</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
+<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >Service.PaymentServiceTest</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >Service.PaymentServiceTest#testAddPayment</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">biar2471_F01:addPayment:  biar2471_F01:addPayment [Version : 1]<br />biar2471_F02:getTotalAmount:  biar2471_F02:getTotalAmount [Version : 1]<br /></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
+</table>
+</div>
+<a name="toc_tc26064"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="4">Test Case Prj233-108: Step2 - Integrare S+R&nbsp;<span style="font-size: 80%;">[Version  : 1]</span></th></tr>
+<tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="3">biar2471</td></tr>
+<tr><td colspan="4"><span class="label">Summary:</span><br /><p>Summary:<br />
+Se testează integrarea &icirc;ntre PizzaService și PaymentRepository folosind entități dummy.</p>
+
+<p>&nbsp;</p>
+
+<p>Test Steps:</p>
+
+<p>1. Se creează un spy pe PaymentRepository.</p>
+
+<p>2. Se configurează metoda getAll() să returneze o listă dummy de Payment.</p>
+
+<p>3. Se creează instanța PizzaService cu repo-ul real (spy).</p>
+
+<p>4. Se apelează metodele getPayments() și getTotalAmount().</p>
+
+<p>&nbsp;</p>
+
+<p>Expected Results:<br />
+- Lista returnată conține exact obiectele dummy.<br />
+- Suma returnată este corectă pentru PaymentType.CASH.</p>
+</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>Preconditions:<br />
+- Proiectul trebuie compilat corect.<br />
+- PaymentRepository trebuie să funcționeze fără erori.<br />
+- Entitățile dummy Payment sunt create manual sau simulate cu Mockito.</p>
+</td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Automated</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
+<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >Top_Down.PizzaServiceStep2Test</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >Top_Down.PizzaServiceStep2Test#testRetrievePayments_step2</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">biar2471_F02:getTotalAmount:  biar2471_F02:getTotalAmount [Version : 1]<br /></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
+</table>
+</div>
+<a name="toc_tc26068"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="4">Test Case Prj233-110: Step 3&nbsp;<span style="font-size: 80%;">[Version  : 1]</span></th></tr>
+<tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="3">biar2471</td></tr>
+<tr><td colspan="4"><span class="label">Summary:</span><br /><div>Se testează integrarea completă &icirc;ntre PizzaService, PaymentRepository și Payment cu fișier real.</div>
+
+<div>&nbsp;</div>
+
+<div>&nbsp;</div>
+
+<div>Test Steps:</div>
+
+<div>1. Se șterge fișierul payments.txt de test (dacă există).</div>
+
+<div>2. Se creează instanțele reale ale repo-urilor și serviciului.</div>
+
+<div>3. Se apelează addPayment() de mai multe ori.</div>
+
+<div>4. Se verifică rezultatele din getPayments() și getTotalAmount().</div>
+
+<div>&nbsp;</div>
+
+<div>Expected Results:<br />
+- Plățile sunt salvate &icirc;n fișier și returnate corect.<br />
+- Suma este calculată corect doar pe baza datelor introduse &icirc;n test.</div>
+</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>- Fișierul test_payments.txt&nbsp;trebuie să fie gol sau recreat &icirc;nainte de fiecare test.<br />
+- Clasele Payment, PaymentRepository, MenuRepository și PizzaService trebuie să fie complet funcționale.<br />
+- Nu trebuie să existe mock-uri.</p>
+</td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Automated</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
+<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >Top_Down.PizzaServiceStep3Test</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >Top_Down.PizzaServiceStep3Test#testAddAndRetrievePayments_step3</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">biar2471_F01:addPayment:  biar2471_F01:addPayment [Version : 1]<br />biar2471_F02:getTotalAmount:  biar2471_F02:getTotalAmount [Version : 1]<br /></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
+</table>
+</div>
+
+</body>
+</html>
